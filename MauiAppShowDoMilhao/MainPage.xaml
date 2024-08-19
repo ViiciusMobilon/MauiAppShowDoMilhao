@@ -62,5 +62,5 @@
              Value="{Binding Path=Alternativa[3].Correta}"/>
     </StackLayout>
     <StackLayout Orientation="Horizontal">
-        <Button Text="Parar"/>
+        <Button Text="Parar " x:Name="Proximo" Clicked="Proximo_Clicked"/>
         </ContentPage>

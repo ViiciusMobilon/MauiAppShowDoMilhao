@@ -252,7 +252,7 @@ namespace MauiAppShowDoMilhao
         {
             Random r = new Random();
 
-            int sorteado = r.Next(1, 13);
+            int sorteado = r.Next(1, perguntas_faceis.Count);
 
             return perguntas_faceis[sorteado];
         }
@@ -499,7 +499,14 @@ namespace MauiAppShowDoMilhao
         }
     }
 };
+        public static Pergunta getRandomPerguntaMedia()
+        {
+            Random r = new Random();
 
+            int sorteado = r.Next(1, perguntas_faceis.Count);
+
+            return perguntas_faceis[sorteado];
+        }
 
         List<Pergunta> perguntas_dificeis = new()
 {
@@ -743,8 +750,15 @@ namespace MauiAppShowDoMilhao
             new Alternativa { Correta = true, Descricao = "Teorema de Euclides" }
         }
     },
-}; 
+};
+        public static Pergunta getRandomPerguntaDificil()
+        {
+            Random r = new Random();
 
+            int sorteado = r.Next(1, perguntas_faceis.Count);
+
+            return perguntas_faceis[sorteado];
+        }
         public App()
         {
             InitializeComponent();
