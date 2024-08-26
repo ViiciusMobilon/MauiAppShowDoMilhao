@@ -2,39 +2,30 @@
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
+        
+
 
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        
+
+        private void Parar_Clicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+        
         }
-
-        private void Button_Clicked(object sender, EventArgs e)
+            private void Proximo_Clicked(object sender, EventArgs e)
         {
 
-        }
-
-        private void Proximo_Clicked(object sender, EventArgs e)
-        {
             bool acertou = false;
             string resp = "";
             bool valor;
 
             if (alt0.Ischecked)
             {
-                if ((bool)alt0.Content.ToString);
+                if ((bool)alt0.Content.ToString) ;
                 {
                     acertou = true;
                     resp = alt0.Content.ToString();
@@ -73,11 +64,11 @@
                 DisplayAlert("ACERTOU!", resp, "OK");
                 this.BindingContext = App.getRandomPerguntaFacil();
 
-            }else
-            {
-                DisplayAlert("ERROU", "Você perdeu","OK".);
             }
-
+            else
+            {
+                DisplayAlert("ERROU", "Você perdeu", "OK".);
+            }
         }
     }
 

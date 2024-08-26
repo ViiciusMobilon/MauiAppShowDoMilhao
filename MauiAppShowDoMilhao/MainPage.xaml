@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppShowDoMilhao.MainPage">
 
-    <!--<ContentPage.Resouces>
+</ContentPage>
+    
+<ContentPage.Resouces>
         <Style TargetType="RadioButton">
             <Setter Porperty="VisualStateManager.VisualStates.Groups">
                 <VisualStateGroupList>
@@ -28,39 +30,31 @@
                  </VisualStateGroupList>
             </Setter>
         </Style>
-    </ContentPage.Resouces>-->
+    </ContentPage.Resouces>
     <StackLayout Spacing="10" Margin="10">
 
-        <Button Text="Sortear Fácil" Clicked="Button_Clicked" />
+        <Button Text="Sortear Fácil" X:Name="um"  Clicked="" />
 
         <Label Text="{Binding Enunciado}" />
 
-        <StackLayout RadioButtonGroup.GroupName="resposta">
-            <RadioButton CheckedChanged="RadioButton_CheckedChanged" Content="{Binding Path=Alternativas[0].Descricao}" Value="{Binding Path=Alternativas[0].Correta}" />
-            <RadioButton CheckedChanged="RadioButton_CheckedChanged" Content="{Binding Path=Alternativas[1].Descricao}" Value="{Binding Path=Alternativas[1].Correta}" />
-            <RadioButton CheckedChanged="RadioButton_CheckedChanged" Content="{Binding Path=Alternativas[2].Descricao}" Value="{Binding Path=Alternativas[2].Correta}" />
-            <RadioButton CheckedChanged="RadioButton_CheckedChanged" Content="{Binding Path=Alternativas[3].Descricao}" Value="{Binding Path=Alternativas[3].Correta}" />
-        </StackLayout>
+        <StackLayout>
+        <RadioButton x:Name="alt0"
+                     Content="{Binding Path=Altrernativa[0].Descricao}"
+                     Value="{Binding Path=Alternativa[0].Correta}"/>
 
+        <RadioButton x:Name="alt1"
+             Content="{Binding Path=Altrernativa[1].Descricao}"
+             Value="{Binding Path=Alternativa[1].Correta}"/>
 
-
-
-        <StackLayout Orientation="Horizontal">
-            <Button Text="Parar" />
-            <Button Text="Próxima" Clicked="Button_Clicked_Proxima" />
-        </StackLayout>
-        <RadioButton x:Name="alti"
-                     Content="{Binding Path=Altrernativa[1].Descricao}"
-                     Value="{Binding Path=Alternativa[1].Correta}"/>
-
-        <RadioButton x:Name="alti"
+        <RadioButton x:Name="alt2"
              Content="{Binding Path=Altrernativa[2].Descricao}"
              Value="{Binding Path=Alternativa[2].Correta}"/>
-
-        <RadioButton x:Name="alti"
-             Content="{Binding Path=Altrernativa[3].Descricao}"
-             Value="{Binding Path=Alternativa[3].Correta}"/>
-    </StackLayout>
+    <RadioButton x:Name="alt3"
+     Content="{Binding Path=Altrernativa[3].Descricao}"
+     Value="{Binding Path=Alternativa[3].Correta}"/>
+</StackLayout>
     <StackLayout Orientation="Horizontal">
-        <Button Text="Parar " x:Name="Proximo" Clicked="Proximo_Clicked"/>
-        </ContentPage>
+        <Button Text="Parar" x:Name="Stop" Clicked="Parar_clicked"/>
+        <Button Text="Proximo" x:Name="Stop" Clicked="Proximo_clicked"/>
+    </StackLayout>   
+        
