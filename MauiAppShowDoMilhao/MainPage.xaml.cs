@@ -1,4 +1,6 @@
-﻿namespace MauiAppShowDoMilhao
+﻿using MauiAppShowDoMilhao.Models;
+
+namespace MauiAppShowDoMilhao
 {
     public partial class MainPage : ContentPage
     {
@@ -12,13 +14,24 @@
 
         
 
-        private void Parar_Clicked(object sender, EventArgs e)
+       
+       
+        void avanca_pergunta()
         {
-        
+            if (Pergunta_count <= 5)
+            {
+                premio = premio + 1000;
+                this.BindingContext = App.getRandomPerguntaFacil();
+            }
+            if (Pergunta_count > 5 && pergunta_count <= 10)
+            {
+                premio = premio + 10000lç;
+                this.BindingContext = App.getRandomPerguntaFacil();
+            }
         }
-            private void Proximo_Clicked(object sender, EventArgs e)
-        {
 
+        private async void Proximo_Clicked_1(object sender, EventArgs e)
+        {
             bool acertou = false;
             string resp = "";
             bool valor;
@@ -61,14 +74,25 @@
             }
             if (acertou)
             {
-                DisplayAlert("ACERTOU!", resp, "OK");
+                await DisplayAlert("ACERTOU!", resp, "OK");
                 this.BindingContext = App.getRandomPerguntaFacil();
 
             }
             else
             {
-                DisplayAlert("ERROU", "Você perdeu", "OK".);
+                await DisplayAlert("ERROU", "Você perdeu", "OK");
+
             }
+        }
+
+        private void Stop_Clicked(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+            this.BindingContext = App.getRandomPerguntaFacil();
         }
     }
 

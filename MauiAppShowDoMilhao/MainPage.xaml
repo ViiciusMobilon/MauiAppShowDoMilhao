@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiAppShowDoMilhao.MainPage">
 
-</ContentPage>
+
     
 <ContentPage.Resouces>
         <Style TargetType="RadioButton">
@@ -33,7 +33,7 @@
     </ContentPage.Resouces>
     <StackLayout Spacing="10" Margin="10">
 
-        <Button Text="Sortear Fácil" X:Name="um"  Clicked="" />
+        <Button Text="Sortear Fácil"  Clicked="Button_Clicked" />
 
         <Label Text="{Binding Enunciado}" />
 
@@ -54,7 +54,10 @@
      Value="{Binding Path=Alternativa[3].Correta}"/>
 </StackLayout>
     <StackLayout Orientation="Horizontal">
-        <Button Text="Parar" x:Name="Stop" Clicked="Parar_clicked"/>
-        <Button Text="Proximo" x:Name="Stop" Clicked="Proximo_clicked"/>
-    </StackLayout>   
-        
+        <Button Text="Parar" x:Name="Stop" Clicked="Stop_Clicked"/>
+        <Button Text="Proximo" x:Name="Proximo" Clicked="Proximo_Clicked_1"/>
+    </StackLayout>
+    </StackLayout>
+    
+
+</ContentPage>
