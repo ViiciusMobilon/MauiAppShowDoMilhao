@@ -254,8 +254,10 @@ namespace MauiAppShowDoMilhao
 
             int sorteado = r.Next(1, perguntas_faceis.Count);
 
+            perguntas_sorteadas.Add(perguntas_faceis[sorteado]);
             return perguntas_faceis[sorteado];
         }
+
         static List<Pergunta> perguntas_medianas = new()
 {
     new Pergunta
@@ -504,6 +506,9 @@ namespace MauiAppShowDoMilhao
             Random r = new Random();
 
             int sorteado = r.Next(1, perguntas_medianas.Count);
+
+            perguntas_sorteadas.Add(perguntas_medianas[sorteado]);
+
 
             return perguntas_faceis[sorteado];
         }
@@ -757,8 +762,14 @@ namespace MauiAppShowDoMilhao
 
             int sorteado = r.Next(1, perguntas_dificeis.Count);
 
+            perguntas_sorteadas.Add(perguntas_dificeis[sorteado]);
+
             return perguntas_faceis[sorteado];
         }
+
+        static List<Pergunta> perguntas_sorteadas = new();
+
+
         public App()
         {
             InitializeComponent();

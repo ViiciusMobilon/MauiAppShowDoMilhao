@@ -5,32 +5,32 @@
 
 
     
-<ContentPage.Resouces>
+<ContentPage.Resources>
         <Style TargetType="RadioButton">
-            <Setter Porperty="VisualStateManager.VisualStates.Groups">
+            <Setter Property="VisualStateManager.VisualStateGroups">
                 <VisualStateGroupList>
                     <VisualStateGroup x:Name="CheckedStates">
                         <VisualState x:Name="Checked">
-                            <VisualState.Setter>
+                            <VisualState.Setters>
                                 <Setter Property="TextColor"
                                     Value="Green"/>
                                 <Setter Property="Opacity"
                                        Value="1"/>
-                            </VisualState.Setter>
+                            </VisualState.Setters>
                         </VisualState>
                         <VisualState x:Name="Uncheked">
-                            <VisualState.Setter>
+                            <VisualState.Setters>
                             <Setter Property="TextColor"
                                 Value="Red"/>
-                            <Setter Porperty="Opacity
-                                   Value=0.5"/>
-                            </VisualState.Setter>
+                            <Setter Property="Opacity"
+                                   Value="0.5"/>
+                            </VisualState.Setters>
                         </VisualState>
                     </VisualStateGroup>
                  </VisualStateGroupList>
             </Setter>
         </Style>
-    </ContentPage.Resouces>
+    </ContentPage.Resources>
     <StackLayout Spacing="10" Margin="10">
 
         <Button Text="Sortear Fácil"  Clicked="Button_Clicked" />

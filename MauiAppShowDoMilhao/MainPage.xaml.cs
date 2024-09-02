@@ -4,8 +4,9 @@ namespace MauiAppShowDoMilhao
 {
     public partial class MainPage : ContentPage
     {
-        
 
+        double premio = 0;
+        int pergunta_count = 0;
 
         public MainPage()
         {
@@ -18,14 +19,14 @@ namespace MauiAppShowDoMilhao
        
         void avanca_pergunta()
         {
-            if (Pergunta_count <= 5)
+            if (pergunta_count <= 5)
             {
                 premio = premio + 1000;
                 this.BindingContext = App.getRandomPerguntaFacil();
             }
-            if (Pergunta_count > 5 && pergunta_count <= 10)
+            if (pergunta_count > 5 && pergunta_count <= 10)
             {
-                premio = premio + 10000lç;
+                premio = premio + 10000;
                 this.BindingContext = App.getRandomPerguntaFacil();
             }
         }
@@ -36,9 +37,9 @@ namespace MauiAppShowDoMilhao
             string resp = "";
             bool valor;
 
-            if (alt0.Ischecked)
+            if (alt0.IsChecked)
             {
-                if ((bool)alt0.Content.ToString) ;
+                if ((bool) alt0.Value) 
                 {
                     acertou = true;
                     resp = alt0.Content.ToString();
@@ -46,27 +47,27 @@ namespace MauiAppShowDoMilhao
             }
 
 
-            if (alt1.Ischecked)
+            if (alt1.IsChecked)
             {
-                if ((bool)alt1.Content.ToString) ;
+                if ((bool) alt1.Value) 
                 {
                     acertou = true;
                     resp = alt1.Content.ToString();
                 }
             }
 
-            if (alt2.Ischecked)
+            if (alt2.IsChecked)
             {
-                if ((bool)alt2.Content.ToString) ;
+                if ((bool) alt2.Value) 
                 {
                     acertou = true;
                     resp = alt2.Content.ToString();
                 }
             }
 
-            if (alt3.Ischecked)
+            if (alt3.IsChecked)
             {
-                if ((bool)alt3.Content.ToString) ;
+                if ((bool) alt3.Value) 
                 {
                     acertou = true;
                     resp = alt3.Content.ToString();
