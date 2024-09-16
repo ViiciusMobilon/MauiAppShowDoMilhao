@@ -33,6 +33,16 @@
     </ContentPage.Resources>
     <StackLayout Spacing="10" Margin="10">
 
+        <Grid ColumnDefinitions ="*,*,*"
+              RowDefinitions="Auto, Auto">
+            <Label Grid.Column="0" Text="Prêmio"/>
+            <Label Grid.Column="1" Text="Nivel"/>
+            <Label Grid.Column="2" Text="Número da Pergunta:"/>
+
+            <Label Grid.Column="0" Grid.Row="1"  Text="lbl_premio"/>
+            <Label Grid.Column="1"  Grid.Row="1" Text="lbl_nivel"/>
+            <Label Grid.Column="2" Grid.Row="1" Text="lbl_pergunta_numero"/>
+        </Grid>
         <Button Text="Sortear Fácil"  Clicked="Button_Clicked" />
 
         <Label Text="{Binding Enunciado}" />

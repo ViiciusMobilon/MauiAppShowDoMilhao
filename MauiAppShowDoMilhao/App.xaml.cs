@@ -248,15 +248,7 @@ namespace MauiAppShowDoMilhao
         }
     }
 };
-        public static Pergunta getRandomPerguntaFacil()
-        {
-            Random r = new Random();
-
-            int sorteado = r.Next(1, perguntas_faceis.Count);
-
-            perguntas_sorteadas.Add(perguntas_faceis[sorteado]);
-            return perguntas_faceis[sorteado];
-        }
+        
 
         static List<Pergunta> perguntas_medianas = new()
 {
@@ -501,17 +493,7 @@ namespace MauiAppShowDoMilhao
         }
     }
 };
-        public static Pergunta getRandomPerguntaMedia()
-        {
-            Random r = new Random();
-
-            int sorteado = r.Next(1, perguntas_medianas.Count);
-
-            perguntas_sorteadas.Add(perguntas_medianas[sorteado]);
-
-
-            return perguntas_faceis[sorteado];
-        }
+       
 
         static List<Pergunta> perguntas_dificeis = new()
 {
@@ -756,20 +738,68 @@ namespace MauiAppShowDoMilhao
         }
     },
 };
-        public static Pergunta getRandomPerguntaDificil()
-        {
-            Random r = new Random();
-
-            int sorteado = r.Next(1, perguntas_dificeis.Count);
-
-            perguntas_sorteadas.Add(perguntas_dificeis[sorteado]);
-
-            return perguntas_faceis[sorteado];
-        }
+        
 
         static List<Pergunta> perguntas_sorteadas = new();
 
+            public static Pergunta getRandomPerguntaFacil()
+                    {
+                        
+                        Random r = new Random();
+                        Pergunta pergunta_sorteada;
 
+            while (true) { 
+                        int sorteado = r.Next(1, 20);
+
+                        perguntas_sorteadas = perguntas_faceis[sorteado];
+                if (!perguntas_faceis.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+                       }
+            return pergunta_sorteada;
+                    }
+
+             public static Pergunta getRandomPerguntaMedia()
+                    {
+
+            Random r = new Random();
+            Pergunta pergunta_sorteada;
+
+            while (true)
+            {
+                int sorteado = r.Next(1, 20);
+
+                perguntas_sorteadas = perguntas_medianas[sorteado];
+                if (!perguntas_medianas.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+            return pergunta_sorteada;
+        }
+        
+        public static Pergunta getRandomPerguntaDificil()
+        {
+
+            Random r = new Random();
+            Pergunta pergunta_sorteada;
+
+            while (true)
+            {
+                int sorteado = r.Next(1, 20);
+
+                perguntas_sorteadas = perguntas_dificeis[sorteado];
+                if (!perguntas_dificeis.Contains(pergunta_sorteada))
+                {
+                    perguntas_sorteadas.Add(pergunta_sorteada);
+                    break;
+                }
+            }
+            return pergunta_sorteada;
+        }
         public App()
         {
             InitializeComponent();
