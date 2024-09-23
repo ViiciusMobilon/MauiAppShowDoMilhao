@@ -19,7 +19,7 @@ namespace MauiAppShowDoMilhao
             lbl_premio.Text= premio.ToString("C");
             lbl_pergunta_numero.Text= pergunta_count.ToString();
             Stream track = FileSystem.OpenAppPackageFileAsync("0.mp3").Result;
-            AudioManager.Current.CreatePlayer(track).Play;
+            AudioManager.Current.CreatePlayer(track).Play();
         }
 
         private void toca_som()
@@ -73,6 +73,8 @@ namespace MauiAppShowDoMilhao
                 case 15:
                     track = "500000.wav";
                     break;
+                    case 16:track = "1000000.wav";
+                        break;
 
             }
 
@@ -87,15 +89,33 @@ namespace MauiAppShowDoMilhao
                 this.BindingContext = App.getRandomPerguntaFacil();
                 lbl_nivel.Text = "Fácil";
             }
+            if (pergunta_count == 6)
+            {
+                premio =  10000;
+                this.BindingContext = App.getRandomPerguntaMedia();
+                lbl_nivel.Text = "Média";
+            }
             if (pergunta_count > 5 && pergunta_count <= 10)
             {
                 premio = premio + 10000;
                 this.BindingContext = App.getRandomPerguntaMedia();
                 lbl_nivel.Text = "Média";
             }
-            if (pergunta_count > 10 && pergunta_count <= 15)
+            if (pergunta_count==11)
+            {
+                premio = 100000;
+                this.BindingContext = App.getRandomPerguntaDificil();
+                lbl_nivel.Text = "Dificil";
+            }
+            if (pergunta_count > 11 && pergunta_count <= 15)
             {
                 premio = premio + 100000;
+                this.BindingContext = App.getRandomPerguntaDificil();
+                lbl_nivel.Text = "Dificil";
+            }
+            if(pergunta_count == 16)
+            {
+                premio = 1000000;
                 this.BindingContext = App.getRandomPerguntaDificil();
                 lbl_nivel.Text = "Dificil";
             }
@@ -103,6 +123,8 @@ namespace MauiAppShowDoMilhao
 
         private async void Proximo_Clicked_1(object sender, EventArgs e)
         {
+            
+
             bool acertou = false;
             string resp = "";
             bool valor;
@@ -148,15 +170,26 @@ namespace MauiAppShowDoMilhao
             }
             if (acertou)
             {
+                Stream track = FileSystem.OpenAppPackageFileAsync("parabens.wav").Result;
+                AudioManager.Current.CreatePlayer(track).Play();
+
                 await DisplayAlert("ACERTOU!", resp, "OK");
                 this.BindingContext = App.getRandomPerguntaFacil();
                 pergunta_count++;
+                toca_som();
                 avanca_pergunta();
+
+
 
             }
             else
             {
+                Stream track = FileSystem.OpenAppPackageFileAsync("errou.wav").Result;
+                AudioManager.Current.CreatePlayer(track).Play();
                 await DisplayAlert("ERROU", "Você perdeu", "OK");
+                premio = 0;
+                pergunta_count = 1;
+                avanca_pergunta();
 
             }
         }
